@@ -15,6 +15,6 @@ namespace ParkProjectApi.IRepository
         bool NationalParkExists(int id);
         public bool Save(); 
         bool CreateNationalPark(NationalParks nationalParks);
-        bool updateNationalPark(NationalParks nationalParks); 
+        bool UpdateNationalPark(NationalParks nationalParks); 
     }
 }

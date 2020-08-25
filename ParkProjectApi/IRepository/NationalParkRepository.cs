@@ -59,7 +59,7 @@ namespace ParkProjectApi.IRepository
             return _applicationDbContext.SaveChanges() >= 0 ? true : false; 
         }
 
-        public bool updateNationalPark(NationalParks nationalParks)
+        public bool UpdateNationalPark(NationalParks nationalParks)
         {
              _applicationDbContext.NationalParks.Update(nationalParks);
             return Save(); 
