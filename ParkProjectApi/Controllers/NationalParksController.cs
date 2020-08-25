@@ -18,7 +18,7 @@ namespace ParkProjectApi.Controllers
     [ApiController]
     public class NationalParksController : Controller
     {
-        private INationalParkRepository _nationalParkRepository;
+        private readonly INationalParkRepository _nationalParkRepository;
         private readonly IMapper _imapper;
 
         public NationalParksController(INationalParkRepository nationalParkRepository, IMapper imapper)

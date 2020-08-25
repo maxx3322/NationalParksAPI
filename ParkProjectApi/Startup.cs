@@ -33,7 +33,25 @@ namespace ParkProjectApi
             services.AddDbContext<ApplicationDbContext>
                 (options => options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
             services.AddScoped<INationalParkRepository, NationalParkRepository>();
-            services.AddAutoMapper(typeof(ParkMappings)); 
+            services.AddAutoMapper(typeof(ParkMappings));
+            services.AddSwaggerGen(options =>
+            {
+                options.SwaggerDoc("NationalParkOpenAPISpec",
+                    new Microsoft.OpenApi.Models.OpenApiInfo()
+                    {
+                        Title = "National Parks API",
+                        Version = "1",
+                        Description ="Nationa Park API Procjet",
+                        Contact = new Microsoft.OpenApi.Models.OpenApiContact()
+                        {
+                            Email = "maxdgeers@gmail.com",
+                            Name = "Max Geers"
+                      
+                        }
+
+
+                    });
+            });
             services.AddControllers();
             
         }
@@ -47,6 +65,12 @@ namespace ParkProjectApi
             }
 
             app.UseHttpsRedirection();
+            app.UseSwagger();
+            app.UseSwaggerUI(options =>
+            {
+                options.SwaggerEndpoint("/swagger/NationalParkOpenAPISpec/swagger.json", "National Parks API");
+                options.RoutePrefix = "";
+            });
 
             app.UseRouting();
 
