@@ -16,5 +16,6 @@ namespace ParkProjectApi.Data
         }
 
         public DbSet<NationalParks> NationalParks { get; set; }
+        public DbSet<Trail>Trail { get; set; }
     }
 }
